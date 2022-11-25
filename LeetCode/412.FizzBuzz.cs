@@ -19,11 +19,11 @@ namespace LeetCode
 
     // Job = InProcess  Toolchain=InProcessEmitToolchain
 
-    // |                 Method |       Mean |    Error |   StdDev |
-    // |----------------------- |-----------:|---------:|---------:|
-    // |   BenchmarkFizzBuzzOne | 1,634.7 us | 31.01 us | 31.85 us |
-    // |   BenchmarkFizzBuzzTwo |   695.9 us |  9.56 us |  7.98 us |
-    // | BenchmarkFizzBuzzThree |   670.1 us |  9.61 us |  8.99 us |
+    // |        Method |       Mean |    Error |   StdDev |
+    // |-------------- |-----------:|---------:|---------:|
+    // |   FizzBuzzOne | 1,634.7 us | 31.01 us | 31.85 us |
+    // |   FizzBuzzTwo |   695.9 us |  9.56 us |  7.98 us |
+    // | FizzBuzzThree |   670.1 us |  9.61 us |  8.99 us |
     [InProcess]
     public class FizzBuzz
     {
@@ -32,11 +32,11 @@ namespace LeetCode
         private const string fizzBuzz = "FizzBuzz";
 
         [Benchmark]
-        public void BenchmarkFizzBuzzOne() => FizzBuzzOne(30_000);
+        public void FizzBuzzOne() => FizzBuzzOne(30_000);
         [Benchmark]
-        public void BenchmarkFizzBuzzTwo() => FizzBuzzTwo(30_000);
+        public void FizzBuzzTwo() => FizzBuzzTwo(30_000);
         [Benchmark]
-        public void BenchmarkFizzBuzzThree() => FizzBuzzThree(30_000);
+        public void FizzBuzzThree() => FizzBuzzThree(30_000);
 
         // Memory: O(n)
         // Performance: O(n)
