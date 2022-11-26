@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LeetCode
 {
-    internal class RomanLiterals
+    public class RomanLiterals
     {
         private readonly Dictionary<char, int> dict = new Dictionary<char, int>(){
         {'M', 1000},

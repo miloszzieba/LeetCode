@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LeetCode
 {
-    internal class RansomNote
+    public class RansomNote
     {
         public bool CanConstruct(string ransomNote, string magazine)
         {

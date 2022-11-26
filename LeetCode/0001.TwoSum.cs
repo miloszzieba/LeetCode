@@ -1,9 +1,4 @@
 ﻿using BenchmarkDotNet.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeetCode
 {
@@ -97,6 +92,8 @@ namespace LeetCode
             throw new ArgumentException("Can't find pair with sum " + target);
         }
 
+        //Assumption is that each input has exactly one solution.
+        //This solution is not correct, if numbers are duplicated in nums array
         public int[] TwoLoopsSorted(int[] nums, int target)
         {
             var sortedArray = nums

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCode
+﻿namespace LeetCode
 {
-    internal class NumberOfStepsToReduceANumberToZero
+    public class NumberOfStepsToReduceANumberToZero
     {
         public int NumberOfSteps(int num)
         {

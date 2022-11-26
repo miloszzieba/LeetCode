@@ -1,10 +1,9 @@
 ﻿using BenchmarkDotNet.Running;
 using LeetCode;
-using LeetCode.Extensions;
 
 
 //BenchmarkRunner.Run<FizzBuzz>();
 //BenchmarkRunner.Run<TheKWeakestRowsInAMatrix>();
-BenchmarkRunner.Run<TwoSum>();
-
+//BenchmarkRunner.Run<TwoSum>();
+BenchmarkRunner.Run<LongestSubstringWithoutRepeatingCharacters>();
 Console.ReadKey();

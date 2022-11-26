@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using LeetCode.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,73 +14,62 @@ namespace LeetCode
 
         public bool Stack(ListNode head)
         {
-            if (head == null || head.next == null)
+            if (head == null || head.Next == null)
                 return true;
 
             var stack = new Stack<int>();
             var node = head;
             while(node != null)
             {
-                stack.Push(node.val);
-                node = node.next;
+                stack.Push(node.Value);
+                node = node.Next;
             }
 
             var count = stack.Count / 2;
             for(int i = 0; i < count; i++)
             {
-                if(stack.Pop() != head.val)
+                if(stack.Pop() != head.Value)
                     return false;
-                head = head.next;
+                head = head.Next;
             }
             return true;
         }
 
         public bool GoToMiddleWhileReversingAndCompare(ListNode head)
         {
-            if (head == null || head.next == null)
+            if (head == null || head.Next == null)
                 return true;
 
-            if (head.next.next == null)
-                return head.val == head.next.val;
+            if (head.Next.Next == null)
+                return head.Value == head.Next.Value;
 
             ListNode previous = null, temp;
             ListNode slow = head, fast = head;
-            while (fast.next != null && fast.next.next != null)
+            while (fast.Next != null && fast.Next.Next != null)
             {
-                fast = fast.next.next;
-                temp = slow.next;
-                slow.next = previous;
+                fast = fast.Next.Next;
+                temp = slow.Next;
+                slow.Next = previous;
                 previous = slow;
                 slow = temp;
             }
 
-            if (fast.next != null)
+            if (fast.Next != null)
             {
-                if (slow.val != slow.next.val)
+                if (slow.Value != slow.Next.Value)
                     return false;
-                slow = slow.next;
+                slow = slow.Next;
             }
 
             while (previous != null)
             {
-                slow = slow.next;
-                if (previous.val != slow.val)
+                slow = slow.Next;
+                if (previous.Value != slow.Value)
                     return false;
-                previous = previous.next;
+                previous = previous.Next;
             }
 
             return true;
-        }
-    }
-
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int val = 0, ListNode next = null)
-        {
-            this.val = val;
-            this.next = next;
         }
     }
 }
