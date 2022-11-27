@@ -10,28 +10,28 @@ namespace LeetCode.Tests
 
         [Theory]
         [ClassData(typeof(TwoSumTestData))]
-        public void TwoLoops(int[] ints, int target, int[] expectedResult)
+        public void TwoLoops(int[] nums, int target, int[] expectedResult)
         {
             var twoSum = new TwoSum();
-            var result = twoSum.TwoLoops(ints, target);
+            var result = twoSum.TwoLoops(nums, target);
             result.Should().BeEquivalentTo(expectedResult);
         }
 
         [Theory]
         [ClassData(typeof(TwoSumTestData))]
-        public void TwoLoopsSorted(int[] ints, int target, int[] expectedResult)
+        public void TwoLoopsSorted(int[] nums, int target, int[] expectedResult)
         {
             var twoSum = new TwoSum();
-            var result = twoSum.TwoLoopsSorted(ints, target);
+            var result = twoSum.TwoLoopsSorted(nums, target);
             result.Should().BeEquivalentTo(expectedResult);
         }
 
         [Theory]
         [ClassData(typeof(TwoSumTestData))]
-        public void Dictionary(int[] ints, int target, int[] expectedResult)
+        public void Dictionary(int[] nums, int target, int[] expectedResult)
         {
             var twoSum = new TwoSum();
-            var result = twoSum.Dictionary(ints, target);
+            var result = twoSum.Dictionary(nums, target);
             result.Should().BeEquivalentTo(expectedResult);
         }
     }
