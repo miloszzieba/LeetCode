@@ -6,5 +6,5 @@ using LeetCode;
 //BenchmarkRunner.Run<TheKWeakestRowsInAMatrix>();
 //BenchmarkRunner.Run<TwoSum>();
 //BenchmarkRunner.Run<LongestSubstringWithoutRepeatingCharacters>();
-BenchmarkRunner.Run<MedianOfTwoSortedArrays>();
+//BenchmarkRunner.Run<MedianOfTwoSortedArrays>();
 Console.ReadKey();
