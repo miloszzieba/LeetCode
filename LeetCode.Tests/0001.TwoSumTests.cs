@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class TwoSumTests
+    public class _0001_TwoSumTests
     {
 
         [Theory]

@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class MedianOfTwoSortedArraysTests
+    public class _0004_MedianOfTwoSortedArraysTests
     {
 
         [Theory]

@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class RegularExpressionMatchingTests
+    public class _0010_RegularExpressionMatchingTests
     {
 
         [Theory]

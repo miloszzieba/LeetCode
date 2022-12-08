@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class ReverseIntegerTests
+    public class _0007_ReverseIntegerTests
     {
 
         [Theory]

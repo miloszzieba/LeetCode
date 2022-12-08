@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class StringToIntegerTests
+    public class _0008_StringToIntegerTests
     {
 
         [Theory]

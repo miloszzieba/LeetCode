@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class AddTwoNumbersTests
+    public class _0002_AddTwoNumbersTests
     {
 
         [Theory]

@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class LongestPalindromicSubstringTests
+    public class _0005_LongestPalindromicSubstringTests
     {
 
         [Theory]

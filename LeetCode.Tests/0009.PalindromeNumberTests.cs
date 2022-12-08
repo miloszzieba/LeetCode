@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class PalindromeNumberTests
+    public class _0009_PalindromeNumberTests
     {
 
         [Theory]

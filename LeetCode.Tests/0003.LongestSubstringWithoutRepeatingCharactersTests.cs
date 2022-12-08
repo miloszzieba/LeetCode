@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class LongestSubstringWithoutRepeatingCharactersTests
+    public class _0003_LongestSubstringWithoutRepeatingCharactersTests
     {
 
         [Theory]

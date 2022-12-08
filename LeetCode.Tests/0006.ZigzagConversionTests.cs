@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace LeetCode.Tests
 {
-    public class ZigzagConversionTests
+    public class _0006_ZigzagConversionTests
     {
 
         [Theory]
