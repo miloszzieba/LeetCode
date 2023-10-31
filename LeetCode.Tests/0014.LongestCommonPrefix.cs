@@ -9,7 +9,7 @@ namespace LeetCode.Tests
     {
         [Theory]
         [ClassData(typeof(LongestCommonPrefixTestData))]
-        public void Soluton(string[] strs, string expectedResult)
+        public void Solution(string[] strs, string expectedResult)
         {
             var longestCommonPrefix = new LongestCommonPrefix();
             var result = longestCommonPrefix.Solution(strs);
