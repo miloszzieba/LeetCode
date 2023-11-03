@@ -18,31 +18,32 @@ namespace LeetCode
     //  [Host]     : .NET 6.0.10 (6.0.1022.47605), X64 RyuJIT AVX2
     //  DefaultJob : .NET 6.0.10 (6.0.1022.47605), X64 RyuJIT AVX2
 
-    // * Summary * for 10^4 nums.length
+    // * Summary for 10^4 nums.length *
     // -10^9 < nums1[i] < 10^9 and -10^9 < nums2[i] < 10^9
-    //|        Method |         Mean |      Error |     StdDev |
-    //|-------------- |-------------:|-----------:|-----------:|
-    //| FromTheMiddle |     24.27 ns |   0.238 ns |   0.223 ns |
-    //|  BinarySearch |     45.14 ns |   0.056 ns |   0.050 ns |
-    //|     MergeSort | 78,900.95 ns | 206.605 ns | 183.150 ns |
+    //|        Method |          Mean |       Error |      StdDev | Allocated |
+    //|-------------- |--------------:|------------:|------------:|----------:|
+    //| FromTheMiddle |      8.768 ns |   0.0582 ns |   0.0516 ns |         - |
+    //|  BinarySearch |     41.591 ns |   0.3006 ns |   0.2812 ns |         - |
+    //|     MergeSort | 74,774.802 ns | 353.3740 ns | 313.2569 ns |   80024 B |
 
-    // * Summary * for 10^4 nums.length
+    // * Summary for 10^4 nums.length *
     // -10^9 < nums1[i] < 5*10^8 and 0 < nums2[i] < 10^9
-    //|        Method |         Mean |     Error |    StdDev |
-    //|-------------- |-------------:|----------:|----------:|
-    //| FromTheMiddle |  2,295.85 ns |  7.953 ns |  7.050 ns |
-    //|  BinarySearch |     43.31 ns |  0.414 ns |  0.345 ns |
-    //|     MergeSort | 43,625.36 ns | 70.421 ns | 62.426 ns |
+    //|        Method |         Mean |      Error |     StdDev | Allocated |
+    //|-------------- |-------------:|-----------:|-----------:|----------:|
+    //| FromTheMiddle |  2,242.25 ns |   6.146 ns |   5.449 ns |         - |
+    //|  BinarySearch |     38.45 ns |   0.069 ns |   0.057 ns |         - |
+    //|     MergeSort | 44,431.76 ns | 692.713 ns | 647.964 ns |   80024 B |
 
-    // * Summary * for 10^6 nums.length
+    // * Summary for 10^6 nums.length *
     // -10^9 < nums1[i] < 5*10^8 and 0 < nums2[i] < 10^9
-    //|        Method |            Mean |         Error |        StdDev |
-    //|-------------- |----------------:|--------------:|--------------:|
-    //| FromTheMiddle |     3,284.39 ns |      4.415 ns |      3.687 ns |
-    //|  BinarySearch |        44.03 ns |      0.094 ns |      0.087 ns |
-    //|     MergeSort | 1,975,245.92 ns | 38,379.501 ns | 35,900.210 ns |
+    //|        Method |            Mean |         Error |        StdDev | Allocated |
+    //|-------------- |----------------:|--------------:|--------------:|----------:|
+    //| FromTheMiddle |     3,291.10 ns |     11.411 ns |     10.116 ns |         - |
+    //|  BinarySearch |        43.77 ns |      0.097 ns |      0.086 ns |         - |
+    //|     MergeSort | 1,731,174.50 ns | 31,775.600 ns | 28,168.242 ns | 4040232 B |
 
-    //[InProcess]
+    [InProcess]
+    [MemoryDiagnoser(false)]
     public class MedianOfTwoSortedArrays
     {
         private int[] _nums1;
@@ -51,12 +52,12 @@ namespace LeetCode
         [GlobalSetup]
         public void BenchmarkSetup()
         {
-            this._nums1 = Enumerable.Range(0, 1_000_000)
-                .Select(_ => Random.Shared.Next(-1_000_000_000, 0))
+            this._nums1 = Enumerable.Range(0, 1_0_000)
+                .Select(_ => Random.Shared.Next(-1_000_000_000, 1_000_000_000))
                 .OrderBy(x => x)
                 .ToArray();
-            this._nums2 = Enumerable.Range(0, 1_0_000)
-                .Select(_ => Random.Shared.Next(0, 1_000_000_000))
+            this._nums2 = Enumerable.Range(0, 10_000)
+                .Select(_ => Random.Shared.Next(-1_000_000_000, 1_000_000_000))
                 .OrderBy(x => x)
                 .ToArray();
         }

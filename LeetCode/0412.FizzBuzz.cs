@@ -11,12 +11,13 @@ namespace LeetCode
 
     // Job = InProcess  Toolchain=InProcessEmitToolchain
 
-    // |        Method |       Mean |    Error |   StdDev |
-    // |-------------- |-----------:|---------:|---------:|
-    // |   FizzBuzzOne | 1,634.7 us | 31.01 us | 31.85 us |
-    // |   FizzBuzzTwo |   695.9 us |  9.56 us |  7.98 us |
-    // | FizzBuzzThree |   670.1 us |  9.61 us |  8.99 us |
+    //|        Method |     Mean |   Error |  StdDev |     Gen0 |    Gen1 |    Gen2 |  Allocated |
+    //|-------------- |---------:|--------:|--------:|---------:|--------:|--------:|-----------:|
+    //|   FizzBuzzOne | 793.2 us | 4.28 us | 4.01 us | 142.5781 | 71.2891 | 71.2891 | 1171.66 KB |
+    //|   FizzBuzzTwo | 359.1 us | 1.76 us | 1.65 us |  71.2891 | 71.2891 | 71.2891 |  734.29 KB |
+    //| FizzBuzzThree | 352.2 us | 1.93 us | 1.81 us |  71.2891 | 71.2891 | 71.2891 |  734.29 KB |
     [InProcess]
+    [MemoryDiagnoser(true)]
     public class FizzBuzz
     {
         private const string fizz = "Fizz";

@@ -11,14 +11,15 @@ namespace LeetCode
 
     // Job = InProcess  Toolchain=InProcessEmitToolchain
 
-    // |                       Method |      Mean |     Error |    StdDev |    Median |
-    // |----------------------------- |----------:|----------:|----------:|----------:|
-    // |                InsertionSort |  4.186 us | 0.0815 us | 0.1269 us |  4.157 us |
-    // | InsertionSortAndBinarySearch |  4.848 us | 0.0964 us | 0.0989 us |  4.867 us |
-    // |                         LINQ | 53.765 us | 1.0324 us | 1.0139 us | 53.532 us |
-    // |       MaxHeapAndBinarySearch | 10.697 us | 0.2102 us | 0.3394 us | 10.530 us |
+    //|                       Method |      Mean |     Error |    StdDev |   Gen0 | Allocated |
+    //|----------------------------- |----------:|----------:|----------:|-------:|----------:|
+    //|                InsertionSort |  3.131 us | 0.0468 us | 0.0415 us | 0.2708 |   2.24 KB |
+    //| InsertionSortAndBinarySearch |  2.898 us | 0.0186 us | 0.0165 us | 0.2708 |   2.24 KB |
+    //|                         LINQ | 35.269 us | 0.2131 us | 0.1994 us | 0.6104 |   5.38 KB |
+    //|       MaxHeapAndBinarySearch |  7.502 us | 0.0231 us | 0.0205 us | 0.6485 |   5.32 KB |
 
     [InProcess]
+    [MemoryDiagnoser(true)]
     public class TheKWeakestRowsInAMatrix
     {
         private int[][] _data;

@@ -19,13 +19,14 @@ namespace LeetCode
     //  DefaultJob : .NET 6.0.10 (6.0.1022.47605), X64 RyuJIT AVX2
 
 
-    //|         Method |       Mean |    Error |   StdDev |
-    //|--------------- |-----------:|---------:|---------:|
-    //| CharDictionary | 2,607.5 ns | 11.78 ns | 11.02 ns |
-    //|      CharArray |   258.7 ns |  1.00 ns |  0.88 ns |
-    //|    CharHashSet | 3,117.8 ns |  8.43 ns |  6.58 ns |
+    //|         Method |       Mean |    Error |   StdDev | Allocated |
+    //|--------------- |-----------:|---------:|---------:|----------:|
+    //| CharDictionary | 2,669.8 ns | 19.29 ns | 18.04 ns |    3400 B |
+    //|      CharArray |   277.1 ns |  2.11 ns |  1.76 ns |     408 B |
+    //|    CharHashSet | 3,159.6 ns | 19.01 ns | 16.85 ns |    1312 B |
 
-    //[InProcess]
+    [InProcess]
+    [MemoryDiagnoser(false)]
     public class LongestSubstringWithoutRepeatingCharacters
     {
         private string _s;

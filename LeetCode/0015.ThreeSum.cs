@@ -18,22 +18,23 @@ namespace LeetCode
     //Job = InProcess  Toolchain=InProcessEmitToolchain
 
     //// * Summary for 5*10^2 numbers in -10^5 to 10^5 range*
-    //|            Method |        Mean |    Error |   StdDev |
-    //|------------------ |------------:|---------:|---------:|
-    //|        BruteForce | 38,353.3 us | 49.79 us | 38.87 us |
-    //| BruteForceTrimmed | 26,932.5 us | 21.80 us | 19.32 us |
-    //|       TwoPointers |    289.3 us |  2.79 us |  2.47 us |
-    //|        Dictionary |  1,804.5 us |  1.76 us |  1.47 us |
+    //|            Method |        Mean |     Error |    StdDev |   Gen0 | Allocated |
+    //|------------------ |------------:|----------:|----------:|-------:|----------:|
+    //|        BruteForce | 38,623.9 us | 231.38 us | 205.11 us |      - |   7.33 KB |
+    //| BruteForceTrimmed | 22,847.0 us |  80.64 us |  75.43 us |      - |    6.8 KB |
+    //|       TwoPointers |    277.9 us |   4.03 us |   3.77 us | 0.4883 |   7.84 KB |
+    //|        Dictionary |  1,773.3 us |   8.08 us |   7.17 us | 3.9063 |  41.24 KB |
 
     //// * Summary for 10^3 numbers in -10^5 to 10^5 range*
-    //|            Method |       Mean |     Error |    StdDev |
-    //|------------------ |-----------:|----------:|----------:|
-    //|        BruteForce | 301.503 ms | 0.4310 ms | 0.3599 ms |
-    //| BruteForceTrimmed | 194.867 ms | 0.1172 ms | 0.1039 ms |
-    //|       TwoPointers |   1.112 ms | 0.0110 ms | 0.0103 ms |
-    //|        Dictionary |   6.700 ms | 0.0066 ms | 0.0061 ms |
+    //|            Method |       Mean |     Error |    StdDev |    Gen0 | Allocated |
+    //|------------------ |-----------:|----------:|----------:|--------:|----------:|
+    //|        BruteForce | 302.123 ms | 1.7626 ms | 1.4718 ms |       - |   61.3 KB |
+    //| BruteForceTrimmed | 187.727 ms | 0.4693 ms | 0.4390 ms |       - |  59.66 KB |
+    //|       TwoPointers |   1.143 ms | 0.0065 ms | 0.0058 ms |  5.8594 |  60.02 KB |
+    //|        Dictionary |   6.690 ms | 0.0495 ms | 0.0413 ms | 15.6250 | 131.05 KB |
 
     [InProcess]
+    [MemoryDiagnoser(true)]
     public class ThreeSum
     {
         private int[] _data;
@@ -42,7 +43,7 @@ namespace LeetCode
         public void BenchmarkSetup()
         {
             var hashSet = new HashSet<int>();
-            while (hashSet.Count < 500)
+            while (hashSet.Count < 1000)
             {
                 hashSet.Add(Random.Shared.Next(-100_000, 100_000));
             }

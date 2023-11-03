@@ -11,42 +11,43 @@ namespace LeetCode
 
     //// * Summary for 10^4 numbers from -10^9 to 10^9 range*
     // Target = data[Random from (0, 4999)] + data[Random from (5000, 9999)]
-    //|         Method |       Mean |     Error |    StdDev |
-    //|--------------- |-----------:|----------:|----------:|
-    //|       TwoLoops | 5,751.3 us | 112.42 us | 120.29 us |
-    //| TwoLoopsSorted | 1,561.1 us |  22.19 us |  18.53 us |
-    //|     Dictionary |   308.4 us |   0.83 us |   0.65 us |
+    //|         Method |       Mean |    Error |   StdDev | Allocated |
+    //|--------------- |-----------:|---------:|---------:|----------:|
+    //|       TwoLoops | 2,548.2 us | 41.05 us | 38.40 us |      35 B |
+    //| TwoLoopsSorted | 2,869.8 us | 26.59 us | 23.57 us |  422843 B |
+    //|     Dictionary |   225.5 us |  2.33 us |  2.18 us |  322690 B |
 
     //// * Summary for 10^4 numbers from -10^9 to 10^9 range*
     // Target = data[9998] + data[9999]
     // Best-case scenario for Dictionary. Worst-case scenario for TwoLoops. 
-    //|         Method |             Mean |          Error |         StdDev |
-    //|--------------- |-----------------:|---------------:|---------------:|
-    //|       TwoLoops | 17,060,438.12 ns | 108,586.892 ns | 101,572.246 ns |
-    //| TwoLoopsSorted |  4,239,401.79 ns |  47,967.158 ns |  42,521.637 ns |
-    //|     Dictionary |         56.78 ns |       1.159 ns |       1.380 ns |
+    //|         Method |             Mean |         Error |        StdDev | Allocated |
+    //|--------------- |-----------------:|--------------:|--------------:|----------:|
+    //|       TwoLoops | 14,285,584.25 ns | 79,351.620 ns | 66,262.196 ns |      44 B |
+    //| TwoLoopsSorted |  8,261,266.72 ns | 66,517.940 ns | 62,220.922 ns |  422845 B |
+    //|     Dictionary |         41.23 ns |      0.409 ns |      0.363 ns |     224 B |
 
     //// * Summary for 10^4 numbers from -10^9 to 10^9 range*
     // Target = data[0] + data[9999]
     // Worst-case scenario for Dictionary. O(n) scenario for TwoLoops
     // We can see overhead cost of sorting and creating (num, index) tuples
-    //|         Method |         Mean |      Error |     StdDev |
-    //|--------------- |-------------:|-----------:|-----------:|
-    //|       TwoLoops |     3.340 us |  0.0501 us |  0.0444 us |
-    //| TwoLoopsSorted | 8,913.897 us | 98.6797 us | 92.3050 us |
-    //|     Dictionary |   486.641 us |  3.7083 us |  3.0966 us |
+    //|         Method |         Mean |      Error |     StdDev | Allocated |
+    //|--------------- |-------------:|-----------:|-----------:|----------:|
+    //|       TwoLoops |     2.864 us |  0.0104 us |  0.0097 us |      32 B |
+    //| TwoLoopsSorted | 3,405.745 us | 23.5914 us | 22.0674 us |  422843 B |
+    //|     Dictionary |   396.379 us |  1.7353 us |  1.4490 us |  673174 B |
 
     //// * Summary for 10^4 numbers from -10^9 to 10^9 range*
     // Target = data[0] + data[9999]. Already sorted data
     // Worst-case scenario for Dictionary. O(n) scenario for TwoLoops
     // We can see overhead cost of creating (num, index) tuples
-    //|         Method |       Mean |      Error |     StdDev |
-    //|--------------- |-----------:|-----------:|-----------:|
-    //|       TwoLoops |   3.379 us |  0.0659 us |  0.1026 us |
-    //| TwoLoopsSorted | 831.472 us | 13.1767 us | 11.0032 us |
-    //|     Dictionary | 514.791 us |  9.7334 us | 12.3097 us |
+    //|         Method |       Mean |     Error |    StdDev | Allocated |
+    //|--------------- |-----------:|----------:|----------:|----------:|
+    //|       TwoLoops |   2.867 us | 0.0111 us | 0.0104 us |      32 B |
+    //| TwoLoopsSorted | 667.324 us | 2.9088 us | 2.7209 us |  422842 B |
+    //|     Dictionary | 395.224 us | 0.9380 us | 0.8315 us |  673174 B |
 
     [InProcess]
+    [MemoryDiagnoser(false)]
     public class TwoSum
     {
         private int[] _data;
@@ -60,11 +61,11 @@ namespace LeetCode
             {
                 hashSet.Add(Random.Shared.Next(-1_000_000_000, 1_000_000_000));
             }
-            this._data = hashSet.OrderBy(x => Random.Shared.Next()).ToArray();
-            //this._data = hashSet.OrderBy(x => x).ToArray();
+            //this._data = hashSet.OrderBy(x => Random.Shared.Next()).ToArray();
+            this._data = hashSet.OrderBy(x => x).ToArray();
 
-            this._target = this._data[Random.Shared.Next(0, 4999)] + this._data[Random.Shared.Next(5000, 9999)];
-            //this._target = this._data[0] + this._data[9999];
+            //this._target = this._data[Random.Shared.Next(0, 4999)] + this._data[Random.Shared.Next(5000, 9999)];
+            this._target = this._data[0] + this._data[9999];
             //this._target = this._data[9998] + this._data[9999];
         }
 
