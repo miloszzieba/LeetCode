@@ -13,6 +13,8 @@ namespace LeetCode.Tests
         {
             var threeSumClosest = new ThreeSumClosest();
             var result = threeSumClosest.BruteForce(nums, target);
+
+            Assert.Equal(expected, result);
         }
 
         [Theory]
