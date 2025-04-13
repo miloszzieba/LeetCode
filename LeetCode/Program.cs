@@ -1,8 +1,8 @@
 ﻿using BenchmarkDotNet.Running;
 using LeetCode;
 
-
-BenchmarkRunner.Run<FizzBuzz>();
+BenchmarkRunner.Run<LongestConsecutiveNumber>();
+//BenchmarkRunner.Run<FizzBuzz>();
 //BenchmarkRunner.Run<TheKWeakestRowsInAMatrix>();
 //BenchmarkRunner.Run<TwoSum>();
 //BenchmarkRunner.Run<LongestSubstringWithoutRepeatingCharacters>();

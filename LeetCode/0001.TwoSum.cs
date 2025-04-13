@@ -62,7 +62,7 @@ namespace LeetCode
                 hashSet.Add(Random.Shared.Next(-1_000_000_000, 1_000_000_000));
             }
             //this._data = hashSet.OrderBy(x => Random.Shared.Next()).ToArray();
-            this._data = hashSet.OrderBy(x => x).ToArray();
+            this._data = [.. hashSet.OrderBy(x => x)];
 
             //this._target = this._data[Random.Shared.Next(0, 4999)] + this._data[Random.Shared.Next(5000, 9999)];
             this._target = this._data[0] + this._data[9999];
@@ -86,7 +86,7 @@ namespace LeetCode
                 for (int j = i + 1; j < nums.Length; j++)
                 {
                     if (nums[j] == diff)
-                        return new [] { i, j };
+                        return [i, j];
                 }
             }
 
@@ -109,7 +109,9 @@ namespace LeetCode
                 for (int j = i + 1; j < sortedArray.Length; j++)
                 {
                     if (sortedArray[j].num == diff)
-                        return new [] { Math.Min(sortedArray[i].index, sortedArray[j].index), Math.Max(sortedArray[i].index, sortedArray[j].index) };
+                        return [
+                            Math.Min(sortedArray[i].index, sortedArray[j].index), 
+                            Math.Max(sortedArray[i].index, sortedArray[j].index)];
                     if (sortedArray[j].num > diff)
                         break;
                 }
@@ -125,10 +127,8 @@ namespace LeetCode
             {
                 var diff = target - nums[i];
 
-                if (dictionary.ContainsKey(diff))
-                {
-                    return new[] { i, dictionary[diff] };
-                }
+                if (dictionary.TryGetValue(diff, out int value))
+                    return [i, value];
 
                 dictionary[nums[i]] = i;
             }

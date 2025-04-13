@@ -54,8 +54,8 @@ namespace LeetCode
             var max = 0;
             for (int left = 0, right = 0; right < s.Length; right++)
             {
-                if (dict.ContainsKey(s[right]))
-                    left = Math.Max(left, dict[s[right]] + 1);
+                if (dict.TryGetValue(s[right], out int value))
+                    left = Math.Max(left, value + 1);
                 dict[s[right]] = right;
                 max = Math.Max(max, right - left + 1);
             }

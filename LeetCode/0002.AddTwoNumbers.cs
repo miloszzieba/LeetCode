@@ -31,10 +31,7 @@ namespace LeetCode
                 l2 = l2.Next;
             }
 
-            if (l1.Next == null)
-            {
-                l1.Next = l2.Next;
-            }
+            l1.Next ??= l2.Next;
 
             while(l1.Next != null && carry != 0)
             {
