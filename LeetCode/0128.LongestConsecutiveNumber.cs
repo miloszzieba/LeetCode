@@ -56,6 +56,7 @@ namespace LeetCode
     //| SortedDictionary | Benchmark SortedDictionary takes too long to run             |
     //| HashSet          | 2,809.6 ms | 54.53 ms | 129.59 ms | 2,762.8 ms | 471722848 B |
 
+    [InProcess]
     [MemoryDiagnoser(false)]
     public class LongestConsecutiveNumber
     {
@@ -71,8 +72,8 @@ namespace LeetCode
 
         [Benchmark]
         public int SortedArray() => SortedArray(this._array);
-        //[Benchmark]
-        //public int SortedDictionary() => SortedDictionary(this._array);
+        [Benchmark]
+        public int SortedDictionary() => SortedDictionary(this._array);
         [Benchmark]
         public int HashSet() => HashSet(this._array);
 

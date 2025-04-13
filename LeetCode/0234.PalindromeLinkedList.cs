@@ -10,8 +10,6 @@ namespace LeetCode
 {
     public class PalindromeLinkedList
     {
-        private ListNode _head;
-
         public bool Stack(ListNode head)
         {
             if (head == null || head.Next == null)
