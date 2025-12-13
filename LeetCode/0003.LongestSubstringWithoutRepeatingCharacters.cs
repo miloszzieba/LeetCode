@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LeetCode
 {
-    //// * Summary *
+    //// * Summary for .NET 6*
 
     //BenchmarkDotNet=v0.13.2, OS=Windows 10 (10.0.19043.2251/21H1/May2021Update)
     //Intel Core i9-9900K CPU 3.60GHz(Coffee Lake), 1 CPU, 16 logical and 8 physical cores
@@ -25,7 +25,51 @@ namespace LeetCode
     //|      CharArray |   277.1 ns |  2.11 ns |  1.76 ns |     408 B |
     //|    CharHashSet | 3,159.6 ns | 19.01 ns | 16.85 ns |    1312 B |
 
-    [InProcess]
+    //// * Summary for .NET 8*
+
+    //BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.6466/22H2/2022Update)
+    //Intel Core i9-9900K CPU 3.60GHz(Coffee Lake), 1 CPU, 16 logical and 8 physical cores
+    //.NET SDK 10.0.101
+    //  [Host]     : .NET 8.0.22 (8.0.2225.52707), X64 RyuJIT AVX2
+    //  DefaultJob : .NET 8.0.22 (8.0.2225.52707), X64 RyuJIT AVX2
+
+
+    //| Method         | Mean       | Error   | StdDev  | Allocated |
+    //|--------------- |-----------:|--------:|--------:|----------:|
+    //| CharDictionary | 1,771.2 ns | 7.37 ns | 6.90 ns |    3400 B |
+    //| CharArray      |   234.4 ns | 1.13 ns | 0.94 ns |     408 B |
+    //| CharHashSet    | 2,560.4 ns | 9.20 ns | 7.69 ns |    1312 B |
+
+    // * Summary for .NET 10*
+
+    //BenchmarkDotNet v0.15.8, Windows 10 (10.0.19045.6466/22H2/2022Update)
+    //Intel Core i9-9900K CPU 3.60GHz(Coffee Lake), 1 CPU, 16 logical and 8 physical cores
+    //.NET SDK 10.0.101
+    //  [Host]     : .NET 10.0.1 (10.0.1, 10.0.125.57005), X64 RyuJIT x86-64-v3
+    //  DefaultJob : .NET 10.0.1 (10.0.1, 10.0.125.57005), X64 RyuJIT x86-64-v3
+
+
+    //| Method         | Mean       | Error   | StdDev  | Allocated |
+    //|--------------- |-----------:|--------:|--------:|----------:|
+    //| CharDictionary | 1,629.5 ns | 9.42 ns | 8.35 ns |    3400 B |
+    //| CharArray      |   162.6 ns | 1.11 ns | 1.03 ns |         - |
+    //| CharHashSet    | 2,272.4 ns | 7.95 ns | 7.43 ns |    1312 B |
+
+    // * Summary for 95 capacity on Hashset and Dictionary*
+
+    //BenchmarkDotNet v0.15.8, Windows 10 (10.0.19045.6466/22H2/2022Update)
+    //Intel Core i9-9900K CPU 3.60GHz(Coffee Lake), 1 CPU, 16 logical and 8 physical cores
+    //.NET SDK 10.0.101
+    //  [Host]     : .NET 10.0.1 (10.0.1, 10.0.125.57005), X64 RyuJIT x86-64-v3
+    //  DefaultJob : .NET 10.0.1 (10.0.1, 10.0.125.57005), X64 RyuJIT x86-64-v3
+
+
+    //| Method         | Mean       | Error    | StdDev  | Allocated |
+    //|--------------- |-----------:|---------:|--------:|----------:|
+    //| CharDictionary | 1,407.1 ns | 10.39 ns | 9.21 ns |    2272 B |
+    //| CharArray      |   162.0 ns |  0.52 ns | 0.48 ns |         - |
+    //| CharHashSet    | 1,707.7 ns |  8.02 ns | 7.50 ns |    1768 B |
+
     [MemoryDiagnoser(false)]
     public class LongestSubstringWithoutRepeatingCharacters
     {
@@ -50,7 +94,7 @@ namespace LeetCode
         {
             if (s.Length == 0) return 0;
 
-            var dict = new Dictionary<char, int>();
+            var dict = new Dictionary<char, int>(95);
             var max = 0;
             for (int left = 0, right = 0; right < s.Length; right++)
             {
@@ -85,7 +129,7 @@ namespace LeetCode
         {
             if (s.Length == 0) return 0;
 
-            var hashSet = new HashSet<char>();
+            var hashSet = new HashSet<char>(95);
             var max = 0;
             for (int left = 0, right = 0; right < s.Length; right++)
             {

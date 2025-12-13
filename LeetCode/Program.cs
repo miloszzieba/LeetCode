@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Running;
 using LeetCode;
 
-BenchmarkRunner.Run<CloneGraph>();
+//BenchmarkRunner.Run<CloneGraph>();
 //BenchmarkRunner.Run<LongestConsecutiveNumber>();
 //BenchmarkRunner.Run<FizzBuzz>();
 //BenchmarkRunner.Run<TheKWeakestRowsInAMatrix>();
@@ -10,4 +10,5 @@ BenchmarkRunner.Run<CloneGraph>();
 //BenchmarkRunner.Run<MedianOfTwoSortedArrays>();
 //BenchmarkRunner.Run<ThreeSum>();
 //BenchmarkRunner.Run<ThreeSumClosest>();
+BenchmarkRunner.Run<PalindromicSubstrings>();
 Console.ReadKey();
