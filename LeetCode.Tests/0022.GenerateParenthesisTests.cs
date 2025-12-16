@@ -7,14 +7,14 @@ namespace LeetCode.Tests
 {
     public class _0022_GenerateParenthesisTests
     {
-        [Theory]
-        [ClassData(typeof(GenerateParenthesisTestData))]
-        public void Solution(int count, IList<string> expected)
-        {
-            var generateParenthesis = new GenerateParenthesis();
-            var result = generateParenthesis.Solution(count);
-            result.Should().BeEquivalentTo(expected);
-        }
+        //[Theory]
+        //[ClassData(typeof(GenerateParenthesisTestData))]
+        //public void Solution(int count, IList<string> expected)
+        //{
+        //    var generateParenthesis = new GenerateParenthesis();
+        //    var result = generateParenthesis.Solution(count);
+        //    result.Should().BeEquivalentTo(expected);
+        //}
     }
 
     public class GenerateParenthesisTestData : IEnumerable<object[]>

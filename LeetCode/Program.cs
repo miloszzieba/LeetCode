@@ -10,5 +10,6 @@ using LeetCode;
 //BenchmarkRunner.Run<MedianOfTwoSortedArrays>();
 //BenchmarkRunner.Run<ThreeSum>();
 //BenchmarkRunner.Run<ThreeSumClosest>();
-BenchmarkRunner.Run<PalindromicSubstrings>();
+//BenchmarkRunner.Run<PalindromicSubstrings>();
+BenchmarkRunner.Run<WordBreak>();
 Console.ReadKey();
