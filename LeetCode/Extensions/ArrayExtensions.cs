@@ -31,19 +31,5 @@ namespace LeetCode.Extensions
             }
             return jaggedArray;
         }
-
-        public static ListNode ToLinkedList(this int[] array)
-        {
-            if (array == null || array.Length == 0)
-                return null;
-            var result = new ListNode(array[0]);
-            var currentNode = result;
-            for (int i = 1; i < array.Length; i++)
-            {
-                currentNode.Next = new ListNode(array[i]);
-                currentNode = currentNode.Next;
-            }
-            return result;
-        }
     }
 }

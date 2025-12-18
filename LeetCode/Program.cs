@@ -11,5 +11,6 @@ using LeetCode;
 //BenchmarkRunner.Run<ThreeSum>();
 //BenchmarkRunner.Run<ThreeSumClosest>();
 //BenchmarkRunner.Run<PalindromicSubstrings>();
-BenchmarkRunner.Run<WordBreak>();
+//BenchmarkRunner.Run<WordBreak>();
+BenchmarkRunner.Run<MergeKSortedLists>();
 Console.ReadKey();
